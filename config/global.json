@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "Auditure": {
+            "applicationId": "2GSU9I2Nzg1zA1yOQqEVqYXw2iZ2zcSnS4oKzcWU", 
+            "masterKey": "6Qr638DOnu4XbaxYyEDUQ9n20OZbkdn3XDPZ851B"
+        }, 
+        "_default": {
+            "link": "Auditure"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.18"
+    }
+}
