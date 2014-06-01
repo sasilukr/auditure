@@ -11,6 +11,43 @@
     <script type="text/javascript" src="auditure.js"></script>
     
 	<script type="text/javascript" src="mediaelement-and-player.min.js"></script>
+    <script type="text/javascript" src="js/prefixfree.min.js"></script>
+	<style>
+		body{
+			text-align:center;
+			background:black;
+		}
+
+		#loading{
+			width:200px;
+			height:100px;
+			margin:100px auto;
+			margin-top: 200px;
+		}
+
+		p{
+			height:80px;
+			width:6px;
+			background:#fff;
+			display:inline-block;
+			animation:loader .5s infinite;
+		}
+
+		@keyframes loader{
+			50% { height:6px; margin-top:74px; opacity:.1; }
+		}
+
+		p:nth-child(1) {animation-delay:.1s;}
+		p:nth-child(2) {animation-delay:.2s;}
+		p:nth-child(3) {animation-delay:.3s;}
+		p:nth-child(4) {animation-delay:.4s;}
+		p:nth-child(5) {animation-delay:.5s;}
+		p:nth-child(6) {animation-delay:.6s;}
+		p:nth-child(7) {animation-delay:.7s;}
+		p:nth-child(8) {animation-delay:.8s;}
+		p:nth-child(9) {animation-delay:.9s;}
+		p:nth-child(10){animation-delay:1s;}
+	</style>
 </head>
 <body>
 	<h1><img id="logo" src="auditure.png">Auditure</h1>
@@ -21,6 +58,18 @@
 	      <input type="text" class="searchTerm" id="searchme" placeholder="Search for a radio story to auditure...">
 	      <button type="submit" id="searchButton" class="searchButton">
 	   </div>
+	</div>
+	<div id="loading" class="hideLoading">
+	    <p></p>
+	    <p></p>
+	    <p></p>
+	    <p></p>
+	    <p></p>
+	    <p></p>
+	    <p></p>
+	    <p></p>
+	    <p></p>
+	    <p></p>
 	</div>
 
 

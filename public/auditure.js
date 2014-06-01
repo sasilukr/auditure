@@ -4,6 +4,7 @@
     accessToken = "415d948e3186d5837bbd79f2";
 
     $( "#searchButton" ).click(function() {
+        $("#loading").removeClass("hideLoading");
         var searchTerm = document.getElementById('searchme').value;
         console.log("Searching for " + searchTerm);
         //PMP api
@@ -30,10 +31,23 @@
               width: 640,
               height: 640
             });
+            $("#loading").addClass("hideLoading");
+
           }
         });
       });
+
+
+  $("#searchme").keyup(function(event){
+      if(event.keyCode == 13){
+          $("#searchButton").click();
+      }
   });
+});
+
+
+
+
 
   function getAccessToken() {
     $.ajax({

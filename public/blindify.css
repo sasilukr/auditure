@@ -152,5 +152,9 @@ audio {
 }
 
 .mejs-time-total {
-  width: 280px;
+  width: 280px !important;
+}
+
+.hideLoading {
+  display:none;
 }
