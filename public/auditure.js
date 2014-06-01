@@ -114,14 +114,14 @@
 
   function createAudioTag(audioFile){
     // audioFile = "http://play.publicradio.org/pmp/d/podcast/marketplace/segments/2014/05/19/marketplace_segment1_20140519_64.mp3";
-    var audioTag = $("<audio controls autoplay preload><source id='audiotag1' type='audio/mp3'" +
-      "src='"+audioFile+"'></audio>");
+    var audioTag = $("<audio controls autoplay preload class='mejs-player' src='"+audioFile+"'>"+
+      // "<source id='audiotag1' type='audio/mp3' src='"+audioFile+"'>"+
+      "</audio>");
     $("#sandbox-container").empty();
     $("#sandbox-container").append(audioTag);
-    $('audiotag1').mediaelementplayer({
-      features: ['volume'],
-      audioWidth: 26,
-      audioHeight: 30
+    $('audio').mediaelementplayer({
+      features: ['playpause','progress','volume'],
+      audioWidth: 340
     });
   }
       

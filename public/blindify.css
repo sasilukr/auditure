@@ -135,4 +135,22 @@ audio {
 
 #sandbox-container {
   text-align: center;
+  margin-top: 10px;
+}
+
+.mejs-time-rail {
+  width: 285px !important;
+}
+
+.mejs-horizontal-volume-slider {
+  display: none !important;
+}
+
+.mejs-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mejs-time-total {
+  width: 280px;
 }
