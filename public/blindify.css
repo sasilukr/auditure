@@ -20,6 +20,7 @@
   border-radius: 5px;
   outline: none;
   color: #9DBFAF;
+  font-size: 18px;
 }
 
 .searchTerm:focus{
@@ -116,6 +117,22 @@ h2{
 }
 
 audio {
-    position: absolute;
+    /*position: absolute;*/
     bottom: 2%;
+}
+
+#audioTitle {
+    font-size: 18px;
+    color: white;
+    text-align: center;
+}
+
+#audioDescription {
+  color: white;
+  font-size: 12px;
+  text-align: center;
+}
+
+#sandbox-container {
+  text-align: center;
 }

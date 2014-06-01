@@ -79,6 +79,12 @@
       "Content-Type": "application/vnd.pmp.collection.doc+json",
       "Authorization": "Bearer " + accessToken},
     success: function(data) {
+      var title = data.attributes.title;
+      var description = data.attributes.description;
+      console.log("Title " + title);
+      console.log("Description " + description);
+      $("#audioTitle").text(title);
+      $("#audioDescription").text(description);
       var audioUrl = data.links.enclosure[0].meta.api.href;
       console.log("Audio Doc Link:" + audioUrl);
       downloadAudioDoc(audioUrl);
@@ -108,9 +114,14 @@
 
   function createAudioTag(audioFile){
     // audioFile = "http://play.publicradio.org/pmp/d/podcast/marketplace/segments/2014/05/19/marketplace_segment1_20140519_64.mp3";
-    var audioTag = $("<audio controls autoplay><source id='audiotag1' type='audio/mp3'" +
+    var audioTag = $("<audio controls autoplay preload><source id='audiotag1' type='audio/mp3'" +
       "src='"+audioFile+"'></audio>");
     $("#sandbox-container").empty();
     $("#sandbox-container").append(audioTag);
+    $('audiotag1').mediaelementplayer({
+      features: ['volume'],
+      audioWidth: 26,
+      audioHeight: 30
+    });
   }
       
