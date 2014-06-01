@@ -1,7 +1,38 @@
   $( document ).ready(function() {
+
     auth_code = "Zjk0ZmE3NzktMWQ4ZS00NzVmLWJjYTQtMDM0NWUxM2JkZDZhOmY2ODA3M2U0ZjFmYTcwODdjOWQ4MmQwYw==";
     accessToken = "415d948e3186d5837bbd79f2";
-    searchPMP("water");
+
+    $( "#searchButton" ).click(function() {
+        var searchTerm = document.getElementById('searchme').value;
+        console.log("Searching for " + searchTerm);
+        //PMP api
+        searchPMP(searchTerm);
+
+        //instagram api
+        $.ajax({
+          url       :   'https://api.instagram.com/v1/tags/' + searchTerm + '/media/recent?client_id=4aaadeb36d09416d8e81253ad0bdb661&count=20&callback=?',
+          dataType  :   'json', 
+          success   :   function(data){
+            $('#blindify-list').empty();
+            for(var i=0; i < data['data'].length; i++){
+              $('#blindify-list').append('<li><img src="'+ data['data'][i]['images']['standard_resolution']['url']+'"></li>');
+            } 
+            console.log("added instagram images");
+
+            $('#blindify').blindify({
+              numberOfBlinds: 20,
+              margin: 1,
+              gapHeight: 0,
+              animationSpeed: 600,
+              delayBetweenSlides: 150,
+              orientation: 'vertical',
+              width: 640,
+              height: 640
+            });
+          }
+        });
+      });
   });
 
   function getAccessToken() {
@@ -77,8 +108,9 @@
 
   function createAudioTag(audioFile){
     // audioFile = "http://play.publicradio.org/pmp/d/podcast/marketplace/segments/2014/05/19/marketplace_segment1_20140519_64.mp3";
-    var audioTag = $("<audio controls><source id='audiotag1' type='audio/mp3'" +
+    var audioTag = $("<audio controls autoplay><source id='audiotag1' type='audio/mp3'" +
       "src='"+audioFile+"'></audio>");
+    $("#sandbox-container").empty();
     $("#sandbox-container").append(audioTag);
   }
       
