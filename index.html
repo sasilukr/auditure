@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Auditure </title>
+    <link rel="stylesheet" href="blindify.css" media="all" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="jquery.blindify.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+        
+
+        $( ".searchButton" ).click(function() {
+			  var searchTerm = document.getElementById('searchme').value;
+
+			       	//instagram api
+					$.ajax({
+						url				: 	'https://api.instagram.com/v1/tags/' + searchTerm + '/media/recent?client_id=4aaadeb36d09416d8e81253ad0bdb661&count=100&callback=?',
+						dataType	: 	'json', 
+						success		: 	function(data){
+							
+							for(var i=0; i < data['data'].length; i++){
+							
+							$('#blindify-list').append('<li><img src="'+ data['data'][i]['images']['standard_resolution']['url']+'"></li>');
+							
+							}	
+
+						$('#blindify').blindify({
+			                numberOfBlinds: 20,
+			                margin: 1,
+			                gapHeight: 0,
+			                animationSpeed: 600,
+			                delayBetweenSlides: 150,
+			                orientation: 'vertical',
+			                width: 640,
+			                height: 640
+			            });
+						
+						}
+					
+					});
+
+
+			});
+
+    	
+
+
+        });
+
+    </script>
+</head>
+<body>
+	<h1><img id="logo" src="auditure.png">Auditure</h1>
+	<h2>a radio visualizer</h2>
+
+	<div class="wrap">
+	   <div class="search">
+	      <input type="text" class="searchTerm" id="searchme" placeholder="Search for a radio story to auditure...">
+	      <input type="submit" class="searchButton">
+	   </div>
+	</div>
+
+
+    <article class="container">
+        <section id="blindify">
+            <ul id="blindify-list">
+            </ul>
+        </section>
+    </article>
+
+
+    <audio controls>
+    <source src="audio.mp3" type="audio/mpeg">
+    </audio>
+
+</body>
+</html>
