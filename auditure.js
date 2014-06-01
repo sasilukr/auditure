@@ -1,10 +1,7 @@
   $( document ).ready(function() {
     auth_code = "Zjk0ZmE3NzktMWQ4ZS00NzVmLWJjYTQtMDM0NWUxM2JkZDZhOmY2ODA3M2U0ZjFmYTcwODdjOWQ4MmQwYw==";
     accessToken = "415d948e3186d5837bbd79f2";
-    // getAccessToken();
     searchPMP("water");
-    // createAudioTag("hi");
-    // getAudio("hi");
   });
 
   function getAccessToken() {
